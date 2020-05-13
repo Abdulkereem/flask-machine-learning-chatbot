@@ -4,13 +4,13 @@ from chatterbot.trainers import ListTrainer
 import os
 bot = ChatBot('Friend') #create the bot
 
-bot.set_trainer(ListTrainer) # Teacher
+trainer = ListTrainer(bot)
 
 #bot.train(conv) # teacher train the bot
 
 for knowledeg in os.listdir('base'):
 	BotMemory = open('base/'+ knowledeg, 'r').readlines()
-	bot.train(BotMemory)
+	trainer.train(BotMemory)
 
 
 
